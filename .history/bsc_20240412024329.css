@@ -1,0 +1,13 @@
+
+#contact
+{
+	padding: 8vw;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
