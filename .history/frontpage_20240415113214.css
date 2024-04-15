@@ -1,0 +1,112 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container
+{
+  display: flex;
+  background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5,4,46,0.7)), url("img/back.jpg");
+
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+	background-position: center center;
+  flex-direction: column;
+	justify-content: center;
+  flex-wrap: wrap;
+}
+
+.search-box
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  background: #fff;
+  margin: 150px auto auto ;
+  border-radius : 5px;
+  flex-wrap: wrap;
+
+}
+
+
+
+.row
+{
+  display: flex;
+  flex-wrap: wrap;
+  padding : 10px 20px;
+  border: none;
+}    
+input
+{
+  border: 0;
+  flex: 1;
+  background: transparent;
+  height: 50px;
+  width: 385px;
+  margin-left: -10px;
+  font-size: 20px;
+  color: #333;
+  outline: 0;
+
+}
+button
+{
+	background:transparent;
+	border:0;
+	outline: 0;
+}
+
+button .fa-solid
+{
+	width:25px;
+	color: #555;
+	cursor: pointer;
+	font-size: 22px;
+}
+ ::placeholder
+{
+	color: #555;
+}
+.result-box ul {
+  border-top: 1px solid #999;
+  padding: 15px 10px;
+}
+
+.result-box ul li {
+  list-style: none;
+  border-radius: 3px;
+  padding: 12px 8px;
+  cursor: pointer;
+}
+
+.result-box ul li:hover {
+  background: #e9f3ff;
+}
+
+.another
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  background: #fff;
+  margin: 150px auto auto ;
+  border-radius : 5px;
+  flex-wrap: wrap;
+}
+
+
+h2
+{
+	text-align: center;
+	color: #fff;
+	font-size: 2.2rem;
+	letter-spacing: 1px;
+}
