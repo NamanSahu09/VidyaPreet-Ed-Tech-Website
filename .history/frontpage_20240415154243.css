@@ -69,13 +69,11 @@ body{
   left: 0;
   height: 100%;
   width: 100%;
-  background: transparent;
+  /* background: #343F4F; */
   border-left: 2px solid #FC6D6D;
   animation: typing 3s steps(10) infinite;
-  overflow: hidden;
 }
-@keyframes typing 
-{
+@keyframes typing {
   40%, 60%{
     left: calc(100% + 30px);
   }
@@ -100,7 +98,7 @@ body{
   justify-content: center;
   width: 500px;
   background: #fff;
-  margin: 50px auto auto ;
+  margin: 150px auto auto ;
   border-radius : 5px;
   flex-wrap: wrap;
 

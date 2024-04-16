@@ -63,26 +63,26 @@ body{
   margin: 5px 0;
   line-height: 90px;
 }
-.dynamic-txts li span::after{
+.dynamic-txts li span::after {
   content: "";
   position: absolute;
   left: 0;
   height: 100%;
   width: 100%;
-  background: transparent;
-  border-left: 2px solid #FC6D6D;
-  animation: typing 3s steps(10) infinite;
-  overflow: hidden;
+  background: transparent; /* Set background to transparent */
+  border-left: none; /* Remove border */
+  animation: typing 2s steps(10) infinite;
 }
-@keyframes typing 
-{
-  40%, 60%{
+
+@keyframes typing {
+  40%, 60% {
     left: calc(100% + 30px);
   }
-  100%{
+  100% {
     left: 0;
   }
 }
+
 
 
 
@@ -114,6 +114,7 @@ body{
   flex-wrap: wrap;
   padding : 10px 20px;
   border: none;
+  flex-wrap: wrap;
 }    
 input
 {
@@ -126,6 +127,7 @@ input
   font-size: 20px;
   color: #333;
   outline: 0;
+  flex-wrap: wrap;
 
 }
 button
@@ -172,6 +174,7 @@ button .fa-solid
   justify-content: center;
   width: 600px;
   ;
+  flex-wrap: wrap;
  
   /* background: #fff; */
   margin: -200px auto auto;
@@ -199,6 +202,7 @@ h2
 	color: #ffffff;
 	font-size: 2.2rem;
 	letter-spacing: 1px;
+  
 }
 p
 {

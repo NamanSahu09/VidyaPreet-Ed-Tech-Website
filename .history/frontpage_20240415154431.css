@@ -72,7 +72,6 @@ body{
   background: transparent;
   border-left: 2px solid #FC6D6D;
   animation: typing 3s steps(10) infinite;
-  overflow: hidden;
 }
 @keyframes typing 
 {

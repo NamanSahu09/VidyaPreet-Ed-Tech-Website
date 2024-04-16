@@ -63,26 +63,28 @@ body{
   margin: 5px 0;
   line-height: 90px;
 }
-.dynamic-txts li span::after{
-  content: "";
+.dynamic-txts li span::after {
+  content: attr(data-text); /* Use data attribute to set the content */
   position: absolute;
   left: 0;
   height: 100%;
-  width: 100%;
-  background: transparent;
+  width: 0;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden;
   border-left: 2px solid #FC6D6D;
   animation: typing 3s steps(10) infinite;
-  overflow: hidden;
 }
-@keyframes typing 
-{
-  40%, 60%{
-    left: calc(100% + 30px);
+
+@keyframes typing {
+  0% {
+    width: 0;
   }
-  100%{
-    left: 0;
+  100% {
+    width: 100%;
   }
 }
+
+
 
 
 

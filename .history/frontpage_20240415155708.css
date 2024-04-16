@@ -69,10 +69,9 @@ body{
   left: 0;
   height: 100%;
   width: 100%;
-  background: transparent;
+  background: #343F4F;
   border-left: 2px solid #FC6D6D;
   animation: typing 3s steps(10) infinite;
-  overflow: hidden;
 }
 @keyframes typing 
 {
