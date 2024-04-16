@@ -41,7 +41,6 @@
 				<li><a href="contact.html">Contact</a></li>
 				<li><a href="#">
 					<i class="far fa-user"></i>
-          <span class="loggedin">Log In</span>
 					</a>
 				</li>
 
@@ -71,10 +70,10 @@
       <strong>Log In</strong>
       <!-- inputs -->
       <form >
-        <input type="email" placeholder="Example@gmail.com" name="email" required id="email">
-        <input type="password" placeholder="Password" name="password" required id="password">
+        <input type="email" placeholder="Example@gmail.com" name="email" required>
+        <input type="password" placeholder="Password" name="password" required>
         <!-- submit-btn -->
-        <input type="submit" value="Log In" id="login">
+        <input type="submit" value="Log In">
       </form>
 
       <!-- Forget-and-signup -->
@@ -103,7 +102,6 @@
         <!-- submit-btn -->
         <input type="submit" value="Sign Up">
       </form>
-      <p id="signup-success" class="success-message"></p>
 
       <!-- Forget-and-signup -->
       <div class="form-btns">
@@ -114,11 +112,6 @@
 
   </div>
 
-  </div>
-
-
-
-	
 	<!-- Hero section starts from here -->
 	<section id="home">
 
@@ -476,53 +469,30 @@
 			$('nav .navigation ul').removeClass('active')
 		});
 
+ /*---For Login and Sign-up----------------------------*/
+   
+//  $(document).on('click', '.far.fa-user', function(){
+//     $('.form').addClass('login-active').removeClass('sign-up-active');
+// });
 
+// $(document).on('click', '.sign-up-btn', function(){
+//     $('.form').removeClass('login-active').addClass('sign-up-active');
+// });
+
+// $(document).on('click', '.form-cancel', function(){
+//     $('.form').removeClass('login-active').removeClass('sign-up-active');
+// });
+
+// $(document).on('click', '.already-acount', function(){
+//     $('.form').addClass('login-active').removeClass('sign-up-active');
+// });
 	</script>
 
 <script src="autocomplete.js"></script>
 
 
-<script >
-function clearLocalStorage() {
-	// localStorage.clear();
-}
-
-window.addEventListener('load', clearLocalStorage);
-
-function handleSignupFormSubmit(event) {
-	event.preventDefault();
-
-	let fullName = document.querySelector('.sign-up-form input[name="fullname"]').value.trim();
-	let email = document.querySelector('.sign-up-form input[name="email"]').value.trim();
-	let password = document.querySelector('.sign-up-form input[name="password"]').value.trim();
 
 
-	if (fullName === "" || email === "" || password === "") {
-			alert("Please fill in all fields.");
-			return;
-	}
-
-	let user = {
-	fullName: fullName,
-	email: email,
-	password: password,
-};
-localStorage.setItem('user', JSON.stringify(user));
-	// Display success message
-	showSuccessMessage("User added successfully!");
-}
-function showSuccessMessage(message) {
-	let successMessage = document.getElementById("signup-success");
-	successMessage.innerText = message;
-	successMessage.classList.add("show");
-}
-document.querySelector('.sign-up-form form').addEventListener('submit', handleSignupFormSubmit);
-
-</script>
-
-
-<script src="javascript.js"></script>
-<script src="sweetalert.js"></script>
 
 </body>
 </html>
