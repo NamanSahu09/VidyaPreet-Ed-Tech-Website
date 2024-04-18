@@ -40,9 +40,6 @@ const handleLogin = () => {
 
       // Display user's name in the navigation bar
       displayUserName();
-
-      // Reload the page after successful login
-      location.reload();
     } else {
       // Display error message for invalid credentials
       swal('Invalid username or password');
@@ -52,6 +49,14 @@ const handleLogin = () => {
     swal('No user found. Please sign up first.');
   }
 };
+// Login button click event
+const login = document.getElementById('login');
+login.onclick = (e) => {
+  e.preventDefault();
+  handleLogin();
+  location.reload(); // Reload the page after login attempt
+};
+
 
 window.addEventListener('DOMContentLoaded', () => {
   const loggedIn = sessionStorage.getItem('loggedIn');
@@ -65,18 +70,16 @@ window.addEventListener('DOMContentLoaded', () => {
 const displayUserName = () => {
   const userName = localStorage.getItem('userName');
   if (userName) {
-    //const userNameElement = document.createElement('span');
+    const userNameElement = document.createElement('span');
     document.querySelector('.loggedin').remove();
     
-    const capitalizedUserName = userName.charAt(0).toUpperCase() + userName.slice(1).toLowerCase();
-    const userNameElement = document.createElement('span');
-    userNameElement.textContent = `Hi ${capitalizedUserName}`;
+    userNameElement.textContent = userName;
     userNameElement.classList.add('loggedin');
-    userNameElement.style.fontSize = '16px';
-    userNameElement.style.fontWeight = '500';
-    userNameElement.style.color = '#272727';
-    userNameElement.style.textTransform = 'capitalize'; 
-    userNameElement.style.marginLeft = '2px';
+    userNameElement.style.fontSize = '16px'; 
+    userNameElement.style.fontWeight = '500'; 
+    userNameElement.style.color = '#272727'; 
+    userNameElement.style.textTransform = 'uppercase'; 
+    userNameElement.style.marginLeft = '2px'; 
     userNameElement.style.cursor = 'pointer'; 
 
     // Add click event listener to the user's name to log out

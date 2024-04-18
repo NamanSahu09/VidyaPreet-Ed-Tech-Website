@@ -3,7 +3,7 @@ let username = form.querySelector('input[name="fullname"]');
 let email = form.querySelector('input[name="email"]');
 let password = form.querySelector('input[name="password"]');
 let psw = form.querySelector('input[name="confirm_password"]');
-
+// localStorage.setItem('userName',JSON.stringify(username));
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   validation();

@@ -75,7 +75,7 @@ const displayUserName = () => {
     userNameElement.style.fontSize = '16px';
     userNameElement.style.fontWeight = '500';
     userNameElement.style.color = '#272727';
-    userNameElement.style.textTransform = 'capitalize'; 
+    userNameElement.style.textTransform = 'capitalize'; // Change to capitalize
     userNameElement.style.marginLeft = '2px';
     userNameElement.style.cursor = 'pointer'; 
 

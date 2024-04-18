@@ -65,9 +65,6 @@ window.addEventListener('DOMContentLoaded', () => {
 const displayUserName = () => {
   const userName = localStorage.getItem('userName');
   if (userName) {
-    //const userNameElement = document.createElement('span');
-    document.querySelector('.loggedin').remove();
-    
     const capitalizedUserName = userName.charAt(0).toUpperCase() + userName.slice(1).toLowerCase();
     const userNameElement = document.createElement('span');
     userNameElement.textContent = `Hi ${capitalizedUserName}`;
@@ -75,9 +72,9 @@ const displayUserName = () => {
     userNameElement.style.fontSize = '16px';
     userNameElement.style.fontWeight = '500';
     userNameElement.style.color = '#272727';
-    userNameElement.style.textTransform = 'capitalize'; 
+    userNameElement.style.textTransform = 'capitalize'; // Change to capitalize
     userNameElement.style.marginLeft = '2px';
-    userNameElement.style.cursor = 'pointer'; 
+    userNameElement.style.cursor = 'pointer';
 
     // Add click event listener to the user's name to log out
     userNameElement.addEventListener('click', () => {

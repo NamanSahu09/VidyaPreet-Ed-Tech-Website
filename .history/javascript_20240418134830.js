@@ -32,17 +32,43 @@ const handleLogin = () => {
       // Store login state in sessionStorage
       sessionStorage.setItem('loggedIn', true);
 
-      // Store user's name in localStorage
-      localStorage.setItem('userName', user.fullName);
-
       // Remove the login icon from the navigation bar
       document.querySelector('.navigation .loggedin').remove();
 
-      // Display user's name in the navigation bar
-      displayUserName();
+      // Create a new element to display the user's name
+      const userNameElement = document.createElement('span');
+      userNameElement.textContent = user.fullName;
+      userNameElement.classList.add('loggedin'); // Add a class for styling
+      userNameElement.style.fontSize = '16px'; // Apply font size
+      userNameElement.style.fontWeight = '500'; // Apply font weight
+      userNameElement.style.color = '#272727'; // Apply font color
+      userNameElement.style.textTransform = 'uppercase'; // Apply text transform
+      userNameElement.style.marginLeft = '2px'; // Add some spacing
+      userNameElement.style.cursor = 'pointer'; // Apply cursor style
 
-      // Reload the page after successful login
-      location.reload();
+      // Add click event listener to logout when the user's name is clicked
+      let clicks = 0;
+      userNameElement.addEventListener('click', () => {
+        clicks++;
+        if (clicks === 2) {
+          // Clear sessionStorage and reload the page
+          sessionStorage.removeItem('loggedIn');
+          location.reload();
+        }
+      });
+
+      // Add hover event listener to display "Log Out" when hovering over the name
+      userNameElement.addEventListener('mouseover', () => {
+        userNameElement.textContent = 'Log Out';
+      });
+
+      // Add mouseout event listener to revert back to the user's name when mouse leaves
+      userNameElement.addEventListener('mouseout', () => {
+        userNameElement.textContent = user.fullName;
+      });
+
+      // Add the user's name to the navigation bar
+      document.querySelector('.navigation ul').appendChild(userNameElement);
     } else {
       // Display error message for invalid credentials
       swal('Invalid username or password');
@@ -63,27 +89,31 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Function to display user's name in the navigation bar
 const displayUserName = () => {
-  const userName = localStorage.getItem('userName');
+  const userName = localStorage.getItem('userName'); // Retrieve user's name from localStorage
   if (userName) {
-    //const userNameElement = document.createElement('span');
-    document.querySelector('.loggedin').remove();
-    
-    const capitalizedUserName = userName.charAt(0).toUpperCase() + userName.slice(1).toLowerCase();
+    // If user's name is found, create a span element to display the name
     const userNameElement = document.createElement('span');
-    userNameElement.textContent = `Hi ${capitalizedUserName}`;
+    userNameElement.textContent = userName;
     userNameElement.classList.add('loggedin');
-    userNameElement.style.fontSize = '16px';
-    userNameElement.style.fontWeight = '500';
-    userNameElement.style.color = '#272727';
-    userNameElement.style.textTransform = 'capitalize'; 
-    userNameElement.style.marginLeft = '2px';
+    userNameElement.style.fontSize = '16px'; 
+    userNameElement.style.fontWeight = '500'; 
+    userNameElement.style.color = '#272727'; 
+    userNameElement.style.textTransform = 'uppercase'; 
+    userNameElement.style.marginLeft = '2px'; 
     userNameElement.style.cursor = 'pointer'; 
 
-    // Add click event listener to the user's name to log out
-    userNameElement.addEventListener('click', () => {
-      sessionStorage.removeItem('loggedIn');
-      localStorage.removeItem('userName');
-      location.reload();
+    // Add click event listener to the user's name to listen for double-click events
+    let clicks = 0;
+    userNameElement.addEventListener('dblclick', () => {
+      clicks++;
+      if (clicks === 2) {
+        // If double-clicked, remove the user's name from the navigation bar
+        document.querySelector('.navigation .loggedin').remove();
+        // Reset clicks counter
+        clicks = 0;
+        // Show the login form
+        showLoginForm();
+      }
     });
 
     // Add hover event listener to display "Log Out" when hovering over the name
@@ -100,7 +130,6 @@ const displayUserName = () => {
     document.querySelector('.navigation ul').appendChild(userNameElement);
   }
 };
-
 
 // Function to display login form
 const showLoginForm = () => {
